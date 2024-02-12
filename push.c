@@ -12,14 +12,14 @@ void push(stack_t **stack, int value)
     new_node->n = value;
     new_node->prev = NULL;
 
-    if (*stack != NULL)
+    if (*stack == NULL)
     {
-        new_node->next = *stack;
-        (*stack)->prev = new_node;
+        new_node->next = NULL;
     }
     else
     {
-        new_node->next = NULL;
+        new_node->next = *stack;
+        (*stack)->prev = new_node;
     }
 
     *stack = new_node;
